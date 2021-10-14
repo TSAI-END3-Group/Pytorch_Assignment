@@ -82,34 +82,35 @@ network.to(device)
 ## Must answered questions (from the assignment)
 All the questions have been answered in quite details in the jupyter notebook at the appropriate places. Here we will give a short 1 liner.
 
-1. must mention the data representation
+1. **must mention the data representation**
 
     The random numbers will be generated using a 1-hot encoding of length 10 since the valid numbers to be generated are 0-9
 
     The output tensor will be a 29 length tensor where first 10 neurons represents MNIST label and next 19 neuron represents sum label.
+
     ![alt text](img/output_layer.png "Title")
 
-2. must mention your data generation strategy (basically the class/method you are using for random number generation)
+2. **must mention your data generation strategy (basically the class/method you are using for random number generation)**
      The data is generated in two ways : MNIST images are downloaded from the standard MNIST URLs. There is a download function that will trigger if MNIST images are not locally present. If the local copy is present then the download doesnot happen
 
      The random numbers are generated using the randint() python function
 
 
 
-3. must mention how you have combined the two inputs (basically which layer you are combining)
+3. **must mention how you have combined the two inputs (basically which layer you are combining)**
 
 ![alt text](img/network_architecture.png "Title")
-The concatenation happens before FC3
+As shown in the diagram the concatenation happens before FC3
 
-4. must mention how you are evaluating your results 
+4. **must mention how you are evaluating your results** 
 
 Since MNIST images come with 10000 test images we are using them along with 10000 random numbers to see if the network can predict correct MNIST label and sum labels.
 
-5. must mention "what" results you finally got and how did you evaluate your results
+5. **must mention "what" results you finally got and how did you evaluate your results**
 
 Please see the results Section below
 
-6. must mention what loss function you picked and why!
+6. **must mention what loss function you picked and why!**
 
 we are using the cross entropy loss. The detailed explaination is in [notebook](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb)
 
@@ -118,7 +119,7 @@ we are using the cross entropy loss. The detailed explaination is in [notebook](
 ## Results:
 The **training accuracy** is 98% for detecting the MNIST images and 97% for detecting the correct Sum Labels after 10 epochs
 
-Below are the curves that we get from TensorBoard
+Below are the curves that we get from TensorBoard. ( we have used the ```tensorboard from torch.utils.tensorboard import SummaryWriter``` to write to the tensorboard)
 #### Loss curve
 ![alt text](img/tb_loss.png "Title")
 

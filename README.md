@@ -23,10 +23,11 @@ Essentially there are 4 major parts to this problem
 **Note: For all the above key aspects of the problem we have written detailed analysis/notes in the jupyter notebook itself.**
 
 
-### Datacreation Approaches
-we want to mention that we experimented with two approaches to generate the data. The output is almost the same so cant decide which is better. Hence we have submitted both the notebooks for your reference. [Approach1](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb)
+### Data Creation Approaches
+we want to mention that we experimented with two approaches to generate the data. The output is almost the same so cant decide which is better. Hence we have submitted both the notebooks for your reference. 
+1. [Approach1](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb)
 
-[Approach2](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach2.ipynb)
+2. [Approach2](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach2.ipynb)
 
 Broadly the two approaches are as follows
 
@@ -38,6 +39,46 @@ __Approach1:__ The dataset ```_init_``` function will generate MNIST images, MNI
 __Approach2:__ The dataset ```_init_``` function will only generate MNIST images & MNIST labels. The Random Numbers & Sum Lables will be genreated on demand in the ```_getItem__``` function 
 
 ![alt text](img/summation_2.png "Title")
+
+
+
+The MNIST data will be automatically downloaded if it is present in the notebook/data directory
+The code snippets have been copied from the pytorch MNIST class. This helped in understanding the internals of pytorch datasets as well. We have augmented the MNIST class with the additional requirement of random number for this problem. The random number is being generated using the python function 
+
+```randint(0,10)```
+
+
+
+## Training Versus Test Infrastructure
+
+Training has been done on GPU. However for the Testing (inference) in real world scenario we generally use CPU so just to highlight this fact we have moved the network from GPU to CPU and evalauted the test accuracy. 
+
+```
+## During training this code snippet will move the network parameters and the input tensor to GPU
+device='cuda'
+network.to(device) 
+
+...
+...
+
+for(...):
+
+    MNISTImages=batch["inputs"]["mnistImage"].to(device)
+    MNISTLabels=batch["outputs"]["mnistLabel"].to(device)
+    inputRands=batch["inputs"]["randomNumberTensor"].to(device)
+    sumLabels=batch["outputs"]['sumLabelTensor'].to(device)
+
+```
+
+
+The testing parameters will already be on the CPU as by default the tensors will be on CPU. so no need to move them to CPU explicitly. Only the network parameters will be moved to CPU
+
+```
+## During testing we will move the network from GPU to cpu 
+device='cpu'
+network.to(device)
+```
+
 
 
 ## Results:
@@ -55,3 +96,18 @@ Below are the curves that we get from TensorBoard
 
 The **testing accuracy** is ~97% for both MNIST images and Sum Labels
 
+
+
+
+## Repository Files
+
+1. [pytorch_assignment_solution_Approach1.ipynb](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb) : Solution using approach1
+
+2. [pytorch_assignment_solution_Approach2.ipynb](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach2.ipynb) : Solution using approach1
+
+
+## Contributors
+* Rohit Agarwal
+* Kushal Gandhi
+* Vivek Kumar 
+* Ammishaddai U

@@ -1,17 +1,20 @@
 ## Problem Statement
-This is the assignment based on the Session on Pytorch learning
+This assignment is based on the learnings from Pytorch session.
 
-This problem requires to create a network which can take two types of input
+## Objective
+To create a Neural Network which 
+* Takes two inputs:
+    * an image from MNIST dataset, and
+    * a random number between 0 and 9
+* Gives two outputs:
+    * the "number" that was represented by the MNIST image, and
+    * the "sum" of this number with the random number that was generated and sent as the input to the network. 
 
-MNIST image
-A random Number from 0-9
-and then give out two outputs
+Eg: If MNIST image is 5 and input random number is 7 then the output will be 5 & 13.
 
-MNIST label corresponding to the input image
-Sum of input random number  and MNIST label which we call __Sum Label__
-e.g if MNIST image is 5 and input random number is 6 then the output will be 5 & 11
+![alt text](img/assignment.png "Title")
 
-Essentially there are 4 major parts to this problem
+Essentially there are 4 major parts to this problem:
 1. __Network Architecture__: This will formulate the above problem statement into code. 
 2. __DataSet Creation__: In order for the network to work properly i.e. give out the desired kind of the result, we need to pass the data in a proper format and also create a ground truth for the trainign to happen
 
@@ -31,7 +34,7 @@ we want to mention that we experimented with two approaches to generate the data
 
 Broadly the two approaches are as follows
 
-__Approach1:__ The dataset ```_init_``` function will generate MNIST images, MNIST labels, Random Numbers, Sum Lables and the ```_getItem__``` function will just pull out all the 4 datapoints at the given index as an arrayLookup
+__Approach1:__ The dataset ```_init_``` function will generate MNIST images, MNIST labels, Random Numbers, Sum Labels and the ```_getItem__``` function will just pull out all the 4 datapoints at the given index as an arrayLookup
 
 ![alt text](img/summation_data_creation.png "Title")
 
@@ -71,7 +74,7 @@ for(...):
 ```
 
 
-The testing parameters will already be on the CPU as by default the tensors will be on CPU. so no need to move them to CPU explicitly. Only the network parameters will be moved to CPU
+The testing parameters will already be on the CPU as by default the tensors will be on CPU. So no need to move them to CPU explicitly. Only the network parameters will be moved to CPU.
 
 ```
 ## During testing we will move the network from GPU to cpu 
@@ -91,15 +94,16 @@ All the questions have been answered in quite details in the jupyter notebook at
     ![alt text](img/output_layer.png "Title")
 
 2. **must mention your data generation strategy (basically the class/method you are using for random number generation)**
-     The data is generated in two ways : MNIST images are downloaded from the standard MNIST URLs. There is a download function that will trigger if MNIST images are not locally present. If the local copy is present then the download doesnot happen
+     The data is generated in two ways : MNIST images are downloaded from the standard MNIST URLs. There is a download function that will trigger if MNIST images are not locally present. If the local copy is present then the download does not happen.
 
-     The random numbers are generated using the randint() python function
+     The random numbers are generated using the **randint()** python function.
 
 
 
 3. **must mention how you have combined the two inputs (basically which layer you are combining)**
 
 ![alt text](img/network_architecture.png "Title")
+
 As shown in the diagram the concatenation happens before FC3
 
 4. **must mention how you are evaluating your results** 
@@ -112,12 +116,16 @@ Please see the results Section below
 
 6. **must mention what loss function you picked and why!**
 
-we are using the cross entropy loss. The detailed explaination is in [notebook](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb)
+We are using the cross entropy loss. The detailed explaination is in [notebook](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb)
 
 
 
 ## Results:
-The **training accuracy** is 98% for detecting the MNIST images and 97% for detecting the correct Sum Labels after 10 epochs
+The **training accuracy** is **98%** for detecting the MNIST images and **97%** for detecting the correct Sum Labels after 10 epochs.
+The **testing accuracy** is **~97%** for both MNIST images and Sum Labels.
+
+#### Training Logs
+![alt text](img/Training_logs.PNG "Title")
 
 Below are the curves that we get from TensorBoard. ( we have used the ```tensorboard from torch.utils.tensorboard import SummaryWriter``` to write to the tensorboard)
 #### Loss curve
@@ -128,8 +136,6 @@ Below are the curves that we get from TensorBoard. ( we have used the ```tensorb
 
 #### Accuracy for detecting Sum Labels
 ![alt text](img/tb_accuracy_sum.png "Title")
-
-The **testing accuracy** is ~97% for both MNIST images and Sum Labels
 
 
 

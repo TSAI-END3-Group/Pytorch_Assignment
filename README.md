@@ -36,12 +36,12 @@ Broadly the two approaches are as follows
 
 __Approach1:__ The dataset ```_init_``` function will generate MNIST images, MNIST labels, Random Numbers, Sum Labels and the ```_getItem__``` function will just pull out all the 4 datapoints at the given index as an arrayLookup
 
-![alt text](img/summation_data_creation.png "Title")
+![alt text](img/approach1.png "Title")
 
 
 __Approach2:__ The dataset ```_init_``` function will only generate MNIST images & MNIST labels. The Random Numbers & Sum Lables will be genreated on demand in the ```_getItem__``` function 
 
-![alt text](img/summation_2.png "Title")
+![alt text](img/approach2.png "Title")
 
 
 

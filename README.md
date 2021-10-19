@@ -144,7 +144,7 @@ Below are the curves that we get from TensorBoard. ( we have used the ```tensorb
 
 1. [pytorch_assignment_solution_Approach1.ipynb](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb) : Solution using approach1
 
-2. [pytorch_assignment_solution_Approach2.ipynb](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach2.ipynb) : Solution using approach1
+2. [pytorch_assignment_solution_Approach2.ipynb](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach2.ipynb) : Solution using approach2
 
 
 ## Contributors

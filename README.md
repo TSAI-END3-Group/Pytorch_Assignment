@@ -146,13 +146,13 @@ The testing accuracy for both MNIST and sum labels is 98% and the loss is 0.3
 
 In this case also the trainging accuracy after 10 epochs is almost same as approach1. The log shows that after 10 epochs the accuracy for detecting MNIST labels is __98.8%__ and that of sum label detection is __98.7%__ . The loss after 10 epochs is also about 20
 
-This shows both the approaches are almost same
 
 The network generalizes well for the test data :
 __testing log__
 ![alt text](img/approach2_testing.png "Title")
 The testing accuracy for both MNIST and sum labels is 98% and the loss is almost 0
 
+This shows both the approaches are almost same
 
 
 <hr>

@@ -34,7 +34,7 @@ we want to mention that we experimented with two approaches to generate the data
 
 Broadly the two approaches are as follows
 
-__Approach1:__ The dataset ```_init_``` function will generate MNIST images, MNIST labels, Random Numbers, Sum Labels and the ```_getItem__``` function will just pull out all the 4 datapoints at the given index as an arrayLookup
+__Approach1:__ The dataset ```_init_``` function will generate MNIST images, MNIST labels, Random Numbers and the ```_getItem__``` function will pull out the 3 datapoints at the given index as an arrayLookup. After getting the MNISTLabel and Random Number it will add and return as Sum Label
 
 ![alt text](img/approach1.png "Title")
 

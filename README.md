@@ -124,8 +124,40 @@ We are using the cross entropy loss. The detailed explaination is in [notebook](
 The **training accuracy** is **98%** for detecting the MNIST images and **97%** for detecting the correct Sum Labels after 10 epochs.
 The **testing accuracy** is **~97%** for both MNIST images and Sum Labels.
 
-#### Training Logs
-![alt text](img/Training_logs.PNG "Title")
+### Logs
+We have generated the training logs for the two approaches
+
+1. [Approach1](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach1.ipynb) __training log__
+
+![alt text](img/approach1_training.png "Title")
+
+The log shows that after 10 epochs the accuracy for detecting MNIST labels is __98.8%__ and that of sum label detection is __98.7%__ while the loss started from 360 and came down to 20 
+
+The network generalizes well for the test data :
+__testing log__
+![alt text](img/approach1_testing.png "Title")
+The testing accuracy for both MNIST and sum labels is 98% and the loss is 0.3
+
+
+
+2. [Approach2](https://github.com/TSAI-END3-Group/Pytorch_Assignment/blob/master/notebooks/pytorch_assignment_solution_Approach2.ipynb)
+
+![alt text](img/approach2_training.png "Title")
+
+In this case also the trainging accuracy after 10 epochs is almost same as approach1. The log shows that after 10 epochs the accuracy for detecting MNIST labels is __98.8%__ and that of sum label detection is __98.7%__ . The loss after 10 epochs is also about 20
+
+This shows both the approaches are almost same
+
+The network generalizes well for the test data :
+__testing log__
+![alt text](img/approach2_testing.png "Title")
+The testing accuracy for both MNIST and sum labels is 98% and the loss is almost 0
+
+
+
+<hr>
+We have also plotted the training data from approach 1 using the Tensorboard.
+
 
 Below are the curves that we get from TensorBoard. ( we have used the ```tensorboard from torch.utils.tensorboard import SummaryWriter``` to write to the tensorboard)
 #### Loss curve
